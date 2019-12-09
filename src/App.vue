@@ -31,7 +31,13 @@
                   {{movie.Year}}
                 </p>
                 <a :href="'https://www.imdb.com/title/' + movie.imdbID" target="_blank" class="btn btn-danger">See movie</a>
+                <a @click="addFav(movie)" class="btn btn-primary">add</a>
             </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <div v-for="movie in favs" :key="movie.id">
+              {{movie.Title}} {{movie.Year}}
           </div>
         </div>
       </div>
@@ -50,6 +56,7 @@ export default {
     error: '',
     searchTerm: '',
     results: [],
+    favs: [],
   }),
   methods: {
     async getResults() {
@@ -62,8 +69,11 @@ export default {
       } else {
         this.results = data.Search;
         this.error = '';
-        console.log(this.results);
+        // console.log(this.results);
       }
+    },
+    addFav(movie) {
+      this.favs.push(movie);
     },
   },
 };
