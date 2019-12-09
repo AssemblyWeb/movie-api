@@ -22,9 +22,10 @@
           </div>
           <div class="row">
             <div v-for="movie in results" :key="movie.id" class="card col-4">
-                <img class="card-img-top"
-                  v-bind:src="movie.Poster"
-                  :alt="movie.Title"/>
+                <div class="card-img-top movie-card"
+                  v-bind:style='{ backgroundImage: "url(" + movie.Poster + ")", }'
+                >
+                </div>
                 <h5 class="card-title">{{movie.Title}}</h5>
                 <p class="card-text">
                   {{movie.Year}}
@@ -77,6 +78,10 @@ export default {
     text-align: center;
     color: white;
 
+  }
+  .movie-card{
+    min-height: 200px;
+    background-size: cover;
   }
 
 </style>
