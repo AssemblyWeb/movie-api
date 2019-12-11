@@ -66,6 +66,10 @@ export default {
       if (data.Error) {
         this.results = [];
         this.error = data.Error;
+      } else if (this.searchTerm === 'mandalorian') {
+        this.results = data.Search;
+        this.errore = 'This is the way';
+        // console.log(this.results);
       } else {
         this.results = data.Search;
         this.error = '';
