@@ -16,18 +16,12 @@
             <strong>{{error}}</strong>
           </div>
           <div class="row">
-            <div v-for="movie in results" :key="movie.id" class="card col-4">
-                <div class="card-img-top movie-card"
-                  v-bind:style='{ backgroundImage: "url(" + movie.Poster + ")", }'
-                >
-                </div>
-                <h5 class="card-title">{{movie.Title}}</h5>
-                <p class="card-text">
-                  {{movie.Year}}
-                </p>
-                <a :href="'https://www.imdb.com/title/' + movie.imdbID" target="_blank" class="btn btn-danger">See movie</a>
-                <a @click="addFav(movie)" class="btn btn-primary">add</a>
-            </div>
+            <movie v-for="movie in results" :key="movie.id" class="card col-4"
+              :movie="movie"
+              :addFav="addFav"
+              :removeFav="removeFav"
+            >
+            </movie>
           </div>
         </div>
         <div class="col-3">
@@ -42,12 +36,15 @@
 </template>
 
 <script>
-// import Movie from '@/components/Movie';
+import Movie from '@/components/Movie.vue';
 
 const API_URL = 'https://omdb-api.now.sh/?type=movie&s=';
 
 export default {
   name: 'app',
+  components: {
+    Movie,
+  },
   data: () => ({
     error: '',
     searchTerm: '',
