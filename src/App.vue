@@ -33,6 +33,7 @@
         <div class="col-3">
           <div v-for="movie in favs" :key="movie.id">
               {{movie.Title}} {{movie.Year}}
+              <a @click="removeFav(movie)" class="btn btn-primary">remove</a>
           </div>
         </div>
       </div>
@@ -73,6 +74,10 @@ export default {
     },
     addFav(movie) {
       this.favs.push(movie);
+    },
+    removeFav(movie) {
+      const index = this.favs.indexOf(movie);
+      this.favs.splice(index, 1);
     },
   },
 };
