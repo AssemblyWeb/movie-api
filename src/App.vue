@@ -70,7 +70,9 @@ export default {
       }
     },
     addFav(movie) {
-      this.favs.push(movie);
+      if (this.favs.includes(movie) === false) {
+        this.favs.push(movie);
+      }
     },
     removeFav(movie) {
       const index = this.favs.indexOf(movie);
