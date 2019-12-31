@@ -1,6 +1,6 @@
 <template>
-  <div id="app">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div id="app" class="bg-red-500">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary bg-red-500">
       <a class="navbar-brand" href="#">Vue.js search movie</a>
       <div class="" id="navbarColor01">
         <form @submit.prevent="getResults" class="form-inline my-2 my-lg-0">
@@ -84,17 +84,5 @@ export default {
 </script>
 
 <style>
-  #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: white;
-
-  }
-  .movie-card{
-    min-height: 200px;
-    background-size: cover;
-  }
 
 </style>
