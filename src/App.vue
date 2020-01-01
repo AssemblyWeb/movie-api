@@ -1,14 +1,6 @@
 <template>
-  <div id="app" class="bg-red-500">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary bg-red-500">
-      <a class="navbar-brand" href="#">Vue.js search movie</a>
-      <div class="" id="navbarColor01">
-        <form @submit.prevent="getResults" class="form-inline my-2 my-lg-0">
-          <input v-model="searchTerm" class="form-control mr-sm-2" type="text" placeholder="Search">
-          <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-        </form>
-      </div>
-    </nav>
+  <div id="app">
+   <Navbar/>
     <div class="container">
       <div class="row mt-3">
         <div class="col-9">
@@ -16,18 +8,15 @@
             <strong>{{error}}</strong>
           </div>
           <div class="row">
-            <movie v-for="movie in results" :key="movie.id" class="card col-4"
-              :movie="movie"
-              :addFav="addFav"
-              :removeFav="removeFav"
-            >
+            <movie v-for="movie in results" :key="movie.id" class="card col-4" :movie="movie"
+              :addFav="addFav" :removeFav="removeFav">
             </movie>
           </div>
         </div>
         <div class="col-3">
           <div v-for="movie in favs" :key="movie.id">
-              {{movie.Title}} {{movie.Year}}
-              <a @click="removeFav(movie)" class="btn btn-primary">remove</a>
+            {{movie.Title}} {{movie.Year}}
+            <a @click="removeFav(movie)" class="btn btn-primary">remove</a>
           </div>
         </div>
       </div>
@@ -37,6 +26,7 @@
 
 <script>
 import Movie from '@/components/Movie.vue';
+import Navbar from '@/components/Navbar.vue';
 
 const API_URL = 'https://omdb-api.now.sh/?type=movie&s=';
 
@@ -44,6 +34,7 @@ export default {
   name: 'app',
   components: {
     Movie,
+    Navbar,
   },
   data: () => ({
     error: '',
