@@ -19,8 +19,6 @@
         </a>
       </div>
     </nav>
-    <!-- testgrid -->
-    <!-- <div class=""> -->
       <div class="flex flex-grow mt-5">
         <div class="w-3/4 bg-gray-300 w-full">
             first
@@ -38,28 +36,6 @@
           </div>
         </div>
       </div>
-    <!-- </div> -->
-    <!-- test grid -->
-    <!-- <div class="flex">
-      <div class="">
-        <div class="w-3/4">
-          <div v-if="error" class="mt-3 alert alert-dismissible alert-danger">
-            <strong>{{error}}</strong>
-          </div>
-          <div class="flex">
-            <movie v-for="movie in results" :key="movie.id" class="w-1/3" :movie="movie"
-              :addFav="addFav" :removeFav="removeFav">
-            </movie>
-          </div>
-        </div>
-        <div class="w-1/4">
-          <div v-for="movie in favs" :key="movie.id">
-            {{movie.Title}} {{movie.Year}}
-            <a @click="removeFav(movie)" class="btn btn-primary">remove</a>
-          </div>
-        </div>
-      </div>
-    </div> -->
   </div>
 </template>
 
@@ -94,7 +70,7 @@ export default {
       } else {
         this.results = data.Search;
         this.error = '';
-        // console.log(this.results);
+        console.log(this.results);
       }
     },
     addFav(movie) {
