@@ -7,9 +7,11 @@
         </span>
       </div>
       <form class="" @submit.prevent="getResults">
-        <input v-model="searchTerm" class="transition focus:outline-0 border border-transparent focus:bg-white
-      focus:border-gray-300 placeholder-gray-600 rounded-lg bg-gray-200 py-2 pr-4 pl-10 block w-full
-      appearance-none leading-normal" type="text" placeholder="Search">
+        <input v-model="searchTerm" class="transition focus:outline-0 border border-transparent
+        focus:bg-white
+        focus:border-gray-300 placeholder-gray-600 rounded-lg
+        bg-gray-200 py-2 pr-4 pl-10 block w-full
+        appearance-none leading-normal" type="text" placeholder="Search">
       </form>
       <div class="block flex-grow">
         <a href="https://github.com/AssemblyWeb/vue-api" target="_blank"
@@ -19,12 +21,15 @@
         </a>
       </div>
     </nav>
-      <div class="flex flex-grow mt-5">
-        <div class="w-3/4 bg-gray-300 w-full">
-            first
-            <div class="flex flex-wrap">
-              <movie v-for="movie in results" :key="movie.id" class="" :movie="movie"
-                :addFav="addFav" :removeFav="removeFav">
+      <div class="flex flex-grow mt-5 content-end">
+        <div class="w-3/4 bg-gray-300 w-full content-end">
+            <div v-if="this.results.length">
+              {{this.results.length}} in "{{this.searchTerm}}"
+            </div>
+            <div class="flex flex-wrap -m-2">
+              <movie v-for="movie in results" :key="movie.id" class="w-1/4 m-1 float-right"
+              :movie="movie"
+              :addFav="addFav" :removeFav="removeFav">
               </movie>
             </div>
         </div>
