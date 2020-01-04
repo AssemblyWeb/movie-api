@@ -21,13 +21,13 @@
         </a>
       </div>
     </nav>
-      <div class="flex flex-grow mt-5 content-end">
-        <div class="w-3/4 bg-gray-300 w-full content-end">
+      <div class="flex flex-grow mt-5 container mx-auto ">
+        <div class="w-3/4 bg-gray-300">
             <div v-if="this.results.length">
               {{this.results.length}} in "{{this.searchTerm}}"
             </div>
-            <div class="flex flex-wrap -m-2">
-              <movie v-for="movie in results" :key="movie.id" class="w-1/4 m-1 float-right"
+            <div class="container flex flex-wrap float-right m-2">
+              <movie v-for="movie in results" :key="movie.id" class="w-1/3 mb-4"
               :movie="movie"
               :addFav="addFav" :removeFav="removeFav">
               </movie>
