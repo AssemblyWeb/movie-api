@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <nav class="flex items-center justify-between flex-wrap shadow-md p-6">
+    <nav class="flex bg-white items-center justify-between flex-wrap shadow-md p-6">
       <div class="flex items-center flex-shrink-0 text-white mr-6">
         <span class="font-semibold text-xl tracking-tight">
           <img src="@/assets/logo.svg" alt="">
@@ -21,8 +21,8 @@
         </a>
       </div>
     </nav>
-      <div class="flex flex-grow mt-5 container mx-auto ">
-        <div class="w-3/4 bg-gray-300">
+      <div class="flex flex-grow mt-5 container mx-auto">
+        <div class="w-3/4">
             <div v-if="this.results.length">
               {{this.results.length}} in "{{this.searchTerm}}"
             </div>
@@ -93,5 +93,7 @@ export default {
 </script>
 
 <style>
-
+body{
+  background-color: #EDF2F6;
+}
 </style>
