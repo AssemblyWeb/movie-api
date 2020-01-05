@@ -29,15 +29,22 @@
             <div class="container flex flex-wrap float-right m-2">
               <movie v-for="movie in results" :key="movie.id" class="w-1/3 mb-4"
               :movie="movie"
-              :addFav="addFav" :removeFav="removeFav">
+              :addFav="addFav"
+              :removeFav="removeFav"
+              >
               </movie>
             </div>
         </div>
-        <div class="w-1/4 bg-gray-500">
-         second
-         <div v-for="movie in favs" :key="movie.id" class="flex">
-            {{movie.Title}} {{movie.Year}}
-            <a @click="removeFav(movie)" class="btn btn-primary">remove</a>
+        <!-- favs -->
+        <div class="w-1/4">
+        <div class="ml-1" v-if="this.favs.length">
+          {{this.favs.length}} Favs
+        </div>
+         <div>
+            <minicard v-for="movie in favs" :key="movie.id"
+            :movie="movie" :removeFav="removeFav"
+            class="flex w-3/3 m-2">
+            </minicard>
           </div>
         </div>
       </div>
@@ -46,6 +53,7 @@
 
 <script>
 import Movie from '@/components/Movie.vue';
+import Minicard from '@/components/Minicard.vue';
 
 const API_URL = 'https://omdb-api.now.sh/?type=movie&s=';
 
@@ -53,6 +61,7 @@ export default {
   name: 'app',
   components: {
     Movie,
+    Minicard,
   },
   data: () => ({
     error: '',
@@ -75,13 +84,14 @@ export default {
       } else {
         this.results = data.Search;
         this.error = '';
-        console.log(this.results);
+        // console.log(this.results);
       }
     },
     addFav(movie) {
       if (this.favs.includes(movie) === false) {
         this.favs.push(movie);
       }
+      console.log(this.favs);
     },
     removeFav(movie) {
       const index = this.favs.indexOf(movie);

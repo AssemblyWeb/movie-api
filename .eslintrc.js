@@ -8,11 +8,18 @@ module.exports = {
     '@vue/airbnb',
   ],
   rules: {
-    "vue/max-attributes-per-line": "off",
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
   },
   parserOptions: {
     parser: 'babel-eslint',
   },
+  overrides: [
+    {
+      files: ["*.vue"],
+      rules: {
+        'max-len': 'off' // disables line length check
+      }
+    }
+  ]
 };

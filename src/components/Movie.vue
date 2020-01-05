@@ -4,7 +4,9 @@
       <img class="object-cover w-full movie-card-img" :src="getImgUrl(movie.Poster)"
         :alt='movie.Title'>
       <div class="px-6 py-4 h-32 relative">
-        <div class="mb-4">{{movie.Title}} ({{movie.Year}})</div>
+        <div class="mb-4 movie-card-title">
+          <span class="font-bold">{{movie.Title}}</span> ({{movie.Year}})
+        </div>
         <div class="absolute movie-card-buttons">
           <a :href="'https://www.imdb.com/title/' + movie.imdbID" target="_blank"
             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
@@ -21,7 +23,7 @@
 
 <script>
 export default {
-  props: ['movie', 'addFav', 'removeFav'],
+  props: ['movie', 'addFav'],
   methods: {
     getImgUrl(poster) {
       if (poster === 'N/A') {
@@ -39,5 +41,8 @@ export default {
 }
 .movie-card-img{
   height: 400px;
+}
+.movie-card-title{
+  color: #34495F;
 }
 </style>
