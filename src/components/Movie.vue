@@ -9,13 +9,13 @@
           <span class="font-bold">{{movie.Title}}</span> ({{movie.Year}})
         </div>
         <div class="absolute movie-card-buttons">
-          <a :href="'https://www.imdb.com/title/' + movie.imdbID" target="_blank"
+          <div :href="'https://www.imdb.com/title/' + movie.imdbID" target="_blank"
             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
             See movie
-          </a>
+          </div>
           <a @click="addFav(movie)"
           class="bg-transparent hover:bg-red-500 text-red-700 font-semibold hover:text-white
-          py-2 px-4 border border-red-500 hover:border-transparent rounded ml-2">❤️</a>
+          py-2 px-4 border border-red-500 hover:border-transparent rounded ml-2"><img src="@/assets/heart.svg"/></a>
         </div>
       </div>
     </div>
