@@ -1,8 +1,8 @@
 <template>
-  <div class="w-full">
-    <div class="h-auto w-32 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden" :style="'background-image: url(' + getImgUrl(movie.Poster) + ')'" title="Woman holding a mug">
+  <div class="w-full border-solid border-1 rounded shadow-lg">
+    <div class="h-auto w-32 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center bg-white overflow-hidden" :style="'background-image: url(' + getImgUrl(movie.Poster) + ')'" title="Woman holding a mug">
     </div>
-    <div class="border-r w-full border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+    <div class="w-full bg-white p-4 flex flex-col justify-between leading-normal">
       <div class="mb-8">
         <div class="text-gray-900 font-bold text-xl mb-2">{{movie.Title}}</div>
       </div>

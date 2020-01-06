@@ -1,8 +1,9 @@
 <template lang="html">
   <div class="px-2">
-    <div class="rounded border shadow-lg bg-white h-auto overflow-hidden">
+    <div class="rounded border shadow-lg bg-white h-auto relative overflow-hidden">
       <img class="object-cover w-full movie-card-img" :src="getImgUrl(movie.Poster)"
         :alt='movie.Title'>
+      <div class="absolute inline-block text-xs font-bold movie-card-category bg-green-200 uppercase text-green-500 rounded-full px-3 ">{{movie.Type}}</div>
       <div class="px-6 py-4 h-32 relative">
         <div class="mb-4 movie-card-title">
           <span class="font-bold">{{movie.Title}}</span> ({{movie.Year}})
@@ -44,5 +45,9 @@ export default {
 }
 .movie-card-title{
   color: #34495F;
+}
+.movie-card-category{
+  top: 20px;
+  left: 20px;
 }
 </style>
