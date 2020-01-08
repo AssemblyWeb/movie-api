@@ -30,7 +30,7 @@
             </div>
           </div>
           <!-- show results -->
-            <div v-if="this.results.length">
+            <div class="font-primary" v-if="this.results.length">
               {{this.results.length}} matching results in <span class="font-bold">"{{this.searchTerm}}"</span>
             </div>
             <div class="container flex flex-wrap float-right m-2">
@@ -44,7 +44,7 @@
         </div>
         <!-- favs -->
         <div class="w-1/4">
-        <div class="ml-3 font-bold" v-if="this.favs.length">
+        <div class="ml-3 font-bold font-primary" v-if="this.favs.length">
           Movies to see: {{this.favs.length}}
         </div>
          <div>
@@ -120,7 +120,7 @@ body{
 .navbar-github:hover svg path{
   fill:#34495F;
 }
-.movie-card-title{
+.font-primary, .movie-card-title{
   color: #34495F;
 }
 .navbar-form-search{
