@@ -4,7 +4,7 @@
     </div>
     <div class="w-full bg-white p-4 flex flex-col justify-between leading-normal">
       <div class="mb-8">
-        <div class="text-gray-900 font-bold text-xl">{{movie.Title}}</div>
+        <div class="movie-card-title font-bold">{{movie.Title}}</div>
         <div class="inline-block text-xs font-bold movie-card-category bg-green-200 uppercase text-green-500 rounded-full px-3">{{movie.Type}}</div>
       </div>
       <div class="flex items-center">

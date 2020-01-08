@@ -47,9 +47,7 @@ export default {
 .movie-card-img{
   height: 400px;
 }
-.movie-card-title{
-  color: #34495F;
-}
+
 .movie-card-category{
   top: 20px;
   left: 20px;
