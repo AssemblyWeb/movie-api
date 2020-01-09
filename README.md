@@ -1,4 +1,4 @@
-# vue-api
+# Movie-api
 
 ## Project setup
 ```
