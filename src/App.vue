@@ -62,8 +62,8 @@
 import Movie from '@/components/Movie.vue';
 import Minicard from '@/components/Minicard.vue';
 
-// const API_URL = 'https://omdb-api.now.sh/?type=movie&s=';
-const API_URL = 'https://omdb-api.now.sh/?s=';
+const API_URL = 'http://www.omdbapi.com/?s=';
+const key = '&apikey=33e16bf1';
 
 export default {
   name: 'app',
@@ -79,7 +79,7 @@ export default {
   }),
   methods: {
     async getResults() {
-      const url = `${API_URL}${this.searchTerm}`;
+      const url = `${API_URL}${this.searchTerm}${key}`;
       const response = await fetch(url);
       const data = await response.json();
       if (data.Error) {
@@ -92,7 +92,7 @@ export default {
       } else {
         this.results = data.Search;
         this.error = '';
-        // console.log(this.results);
+        console.log(this.results);
       }
     },
     addFav(movie) {
