@@ -99,7 +99,7 @@ export default {
       if (this.favs.includes(movie) === false) {
         this.favs.push(movie);
       }
-      console.log(this.favs);
+      // console.log(this.favs);
     },
     removeFav(movie) {
       const index = this.favs.indexOf(movie);
