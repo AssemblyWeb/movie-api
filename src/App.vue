@@ -62,8 +62,8 @@
 import Movie from '@/components/Movie.vue';
 import Minicard from '@/components/Minicard.vue';
 
-// const API_URL = 'https://omdb-api.now.sh/?type=movie&s=';
-const API_URL = 'https://omdb-api.now.sh/?s=';
+const API_URL = 'https://omdb-api.now.sh/?type=movie&s=';
+// const API_URL = 'https://omdb-api.now.sh/?s=';
 
 export default {
   name: 'app',
