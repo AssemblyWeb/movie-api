@@ -62,7 +62,7 @@
 import Movie from '@/components/Movie.vue';
 import Minicard from '@/components/Minicard.vue';
 
-const API_URL = 'http://www.omdbapi.com/?s=';
+const API_URL = 'https://www.omdbapi.com/?s=';
 const key = '&apikey=33e16bf1';
 
 export default {
@@ -92,7 +92,7 @@ export default {
       } else {
         this.results = data.Search;
         this.error = '';
-        console.log(this.results);
+        // console.log(this.results);
       }
     },
     addFav(movie) {
