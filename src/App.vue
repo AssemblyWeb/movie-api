@@ -29,18 +29,30 @@
               <span class="font-semibold mr-2 text-left flex-auto">{{error}}</span>
             </div>
           </div>
-          <!-- show results -->
+          <!-- main app -->
+          <div v-if="this.single !== 0">
+            <!-- show results -->
             <div class="font-primary" v-if="this.results.length">
               {{this.results.length}} matching results in <span class="font-bold">"{{this.searchTerm}}"</span>
             </div>
+            <!-- list of movies -->
             <div class="container flex flex-wrap float-right m-2">
-              <movie v-for="movie in results" :key="movie.id" class="w-1/3 mb-4"
-              :movie="movie"
-              :addFav="addFav"
-              :removeFav="removeFav"
-              >
-              </movie>
-            </div>
+                <movie v-for="movie in results" :key="movie.id" class="w-1/3 mb-4"
+                :movie="movie"
+                :addFav="addFav"
+                :removeFav="removeFav"
+                :seeMovie="seeMovie"
+                >
+                </movie>
+              </div>
+           </div>
+           <!-- single -->
+           <div v-for="movie in single" :key="movie.id">
+             console.log
+             {{this.single.Title}}
+             {{this.single.Poster}}
+             {{this.single.Website}}
+           </div>
         </div>
         <!-- favs -->
         <div class="w-1/4">
@@ -63,6 +75,7 @@ import Movie from '@/components/Movie.vue';
 import Minicard from '@/components/Minicard.vue';
 
 const API_URL = 'http://www.omdbapi.com/?s=';
+const API_URL_SINGLE = 'http://www.omdbapi.com/?i=';
 const key = '&apikey=33e16bf1';
 
 export default {
@@ -76,6 +89,7 @@ export default {
     searchTerm: '',
     results: [],
     favs: [],
+    single: [],
   }),
   methods: {
     async getResults() {
@@ -92,14 +106,27 @@ export default {
       } else {
         this.results = data.Search;
         this.error = '';
-        console.log(this.results);
+        // console.log(this.results);
       }
     },
     addFav(movie) {
       if (this.favs.includes(movie) === false) {
         this.favs.push(movie);
       }
-      console.log(this.favs);
+      // console.log(this.favs);
+    },
+    async seeMovie(movie) {
+      this.single = [];
+      // async getSingle(movie) {
+      const singleId = movie;
+      const urlSingle = `${API_URL_SINGLE}${singleId}${key}`;
+      const responseSingle = await fetch(urlSingle);
+      const dataSingle = await responseSingle.json();
+      // }
+      if (this.single.includes(dataSingle) === false) {
+        this.single.push(dataSingle);
+      }
+      console.log(this.single);
     },
     removeFav(movie) {
       const index = this.favs.indexOf(movie);
