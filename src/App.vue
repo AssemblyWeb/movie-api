@@ -31,7 +31,7 @@
           </div>
           <!-- show results -->
             <div class="font-primary" v-if="this.results.length">
-              {{this.results.length}} matching results in <span class="font-bold">"{{this.searchTerm}}"</span>
+              {{this.results.length}} matching results in <span class="font-bold">"{{this.matchingResult}}"</span>
             </div>
             <div class="container flex flex-wrap float-right m-2">
               <movie v-for="movie in results" :key="movie.id" class="w-1/3 mb-4"
@@ -62,7 +62,7 @@
 import Movie from '@/components/Movie.vue';
 import Minicard from '@/components/Minicard.vue';
 
-const API_URL = 'https://www.omdbapi.com/?s=';
+const API_URL = 'http://www.omdbapi.com/?s=';
 const key = '&apikey=33e16bf1';
 
 export default {
@@ -76,6 +76,7 @@ export default {
     searchTerm: '',
     results: [],
     favs: [],
+    matchingResult: '',
   }),
   methods: {
     async getResults() {
@@ -92,6 +93,7 @@ export default {
       } else {
         this.results = data.Search;
         this.error = '';
+        this.matchingResult = this.searchTerm;
         // console.log(this.results);
       }
     },

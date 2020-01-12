@@ -1,4 +1,4 @@
-[ ] Remove bootswatch
-[ ] Add Tailwind
+[*] Remove bootswatch
+[*] Add Tailwind
 [ ] Filter: movie, series, game
-[ ] Total results
+[*] Total results
