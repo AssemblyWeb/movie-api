@@ -7,12 +7,8 @@
       <div class="flex flex-grow mt-5 container mx-auto">
         <div class="w-3/4">
           <!-- error -->
-          <div v-if="error" class=" text-center py-4 lg:px-4">
-            <div class="p-2 bg-red-600 items-center text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex" role="alert">
-              <span class="flex rounded-full bg-red-700 uppercase px-2 py-1 text-xs font-bold mr-3">Oops!</span>
-              <span class="font-semibold mr-2 text-left flex-auto">{{error}}</span>
-            </div>
-          </div>
+          <error :error="error"
+          ></error>
           <!-- show results -->
             <div class="font-primary" v-if="this.results.length">
               {{this.results.length}} matching results in <span class="font-bold">"{{this.matchingResult}}"</span>
@@ -21,7 +17,6 @@
               <movie v-for="movie in results" :key="movie.id" class="w-1/3 mb-4"
               :movie="movie"
               :addFav="addFav"
-              :removeFav="removeFav"
               >
               </movie>
             </div>
@@ -43,9 +38,10 @@
 </template>
 
 <script>
+import Navbar from '@/components/Navbar.vue';
+import Error from '@/components/Error.vue';
 import Movie from '@/components/Movie.vue';
 import Minicard from '@/components/Minicard.vue';
-import Navbar from '@/components/Navbar.vue';
 
 const API_URL = 'https://www.omdbapi.com/?s=';
 const key = '&apikey=33e16bf1';
@@ -56,6 +52,7 @@ export default {
     Movie,
     Minicard,
     Navbar,
+    Error,
   },
   data: () => ({
     error: '',
@@ -75,7 +72,7 @@ export default {
       } else if (this.searchTerm === 'mandalorian') {
         this.results = data.Search;
         this.error = 'This is the way';
-        // console.log(this.results);
+        this.matchingResult = this.searchTerm;
       } else {
         this.results = data.Search;
         this.error = '';

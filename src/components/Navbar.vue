@@ -12,7 +12,7 @@
       class="transition focus:outline-0 border border-transparent
       focus:bg-white placeholder-gray-00 rounded-lg
       bg-gray-200 py-2 pr-4 pl-10 block w-full
-      appearance-none leading-normal" 
+      appearance-none leading-normal"
       type="text" placeholder="Search">
     </form>
     <div class="block flex-grow">
