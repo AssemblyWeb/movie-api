@@ -2,7 +2,7 @@
   <nav class="flex bg-white items-center justify-between flex-wrap shadow-md p-6">
     <div class="flex items-center flex-shrink-0 text-white mr-6">
       <span class="font-semibold text-xl tracking-tight">
-        <img src="@/assets/logo.svg" alt="">
+        <img src="@/assets/logo.svg" alt="API MOVIE">
       </span>
     </div>
     <!-- input form -->
@@ -12,7 +12,8 @@
       class="transition focus:outline-0 border border-transparent
       focus:bg-white placeholder-gray-00 rounded-lg
       bg-gray-200 py-2 pr-4 pl-10 block w-full
-      appearance-none leading-normal" type="text" placeholder="Search">
+      appearance-none leading-normal" 
+      type="text" placeholder="Search">
     </form>
     <div class="block flex-grow">
       <a href="https://github.com/AssemblyWeb/vue-api" target="_blank"
