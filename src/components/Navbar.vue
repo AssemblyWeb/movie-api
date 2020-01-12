@@ -6,7 +6,7 @@
       </span>
     </div>
     <!-- input form -->
-    <form class="relative navbar-form" @submit.prevent="">
+    <form class="relative navbar-form" @submit.prevent="getResults">
       <svg class="absolute navbar-form-search" xmlns="http://www.w3.org/2000/svg" width="18.81" height="18.814" viewBox="0 0 18.81 18.814"><path id="search-solid" d="M18.555,16.266,14.891,12.6a.881.881,0,0,0-.625-.257h-.6a7.639,7.639,0,1,0-1.323,1.323v.6a.881.881,0,0,0,.257.625l3.663,3.663a.878.878,0,0,0,1.246,0l1.04-1.04A.886.886,0,0,0,18.555,16.266ZM7.642,12.345a4.7,4.7,0,1,1,4.7-4.7A4.7,4.7,0,0,1,7.642,12.345Z" fill="#818994"/></svg>
       <input :value="searchTerm" @input="updateValue($event.target.value)"
       class="transition focus:outline-0 border border-transparent
@@ -25,7 +25,7 @@
 
 <script>
 export default {
-  props: ['searchTerm'],
+  props: ['searchTerm', 'getResults'],
   methods: {
     updateValue(searchTerm) {
       this.$emit('input', searchTerm);

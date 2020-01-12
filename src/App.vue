@@ -2,6 +2,7 @@
   <div id="app">
     <navbar
      v-model="searchTerm"
+     :getResults="getResults"
     ></navbar>
       <div class="flex flex-grow mt-5 container mx-auto">
         <div class="w-3/4">
@@ -56,16 +57,32 @@ export default {
     Minicard,
     Navbar,
   },
-  data: () => {
-    return (
-      error: " ",
-      searchTerm: '',
-      results: [],
-      favs: [],
-      matchingResult: ''
-    );
-  },
+  data: () => ({
+    error: '',
+    searchTerm: '',
+    results: [],
+    favs: [],
+    matchingResult: '',
+  }),
   methods: {
+    async getResults() {
+      const url = `${API_URL}${this.searchTerm}${key}`;
+      const response = await fetch(url);
+      const data = await response.json();
+      if (data.Error) {
+        this.results = [];
+        this.error = data.Error;
+      } else if (this.searchTerm === 'mandalorian') {
+        this.results = data.Search;
+        this.error = 'This is the way';
+        // console.log(this.results);
+      } else {
+        this.results = data.Search;
+        this.error = '';
+        this.matchingResult = this.searchTerm;
+        // console.log(this.results);
+      }
+    },
     addFav(movie) {
       if (this.favs.includes(movie) === false) {
         this.favs.push(movie);
@@ -75,26 +92,6 @@ export default {
     removeFav(movie) {
       const index = this.favs.indexOf(movie);
       this.favs.splice(index, 1);
-    },
-  },
-  watch: {
-    searchTerm: async () => {
-      const url = `${API_URL}${this.data.searchTerm}${key}`;
-      const response = await fetch(url);
-      const data = await response.json();
-      if (data.Error) {
-        this.results = [];
-        this.error = data.Error;
-      } else if (this.searchTerm === 'mandalorian') {
-        this.results = data.Search;
-        this.error = 'This is the way';
-        console.log(this.results);
-      } else {
-        this.results = data.Search;
-        this.error = '';
-        this.matchingResult = this.searchTerm;
-        // console.log(this.results);
-      }
     },
   },
 };
