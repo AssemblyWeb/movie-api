@@ -15,10 +15,9 @@
             </div>
             <div class="container flex flex-wrap float-right m-2">
               <movie v-for="movie in results" :key="movie.id" class="w-1/3 mb-4"
-              :movie="movie"
-              :addFav="addFav"
-              >
-              </movie>
+                :movie="movie"
+                :addFav="addFav"
+              ></movie>
             </div>
         </div>
         <!-- favs -->
@@ -28,9 +27,9 @@
         </div>
          <div>
             <minicard v-for="movie in favs" :key="movie.id"
-            :movie="movie" :removeFav="removeFav"
-            class="flex w-3/3 m-2">
-            </minicard>
+              :movie="movie" :removeFav="removeFav"
+              class="flex w-3/3 m-2"
+            ></minicard>
           </div>
         </div>
       </div>
