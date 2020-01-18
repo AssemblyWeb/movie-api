@@ -43,7 +43,7 @@ import Movie from '@/components/Movie.vue';
 import Minicard from '@/components/Minicard.vue';
 
 const API_URL = 'https://www.omdbapi.com/?s=';
-const key = '&apikey=33e16bf1';
+const key = process.env.VUE_APP_IMDB_KEY;
 
 export default {
   name: 'app',
